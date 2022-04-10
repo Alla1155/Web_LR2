@@ -6,8 +6,33 @@
     </head>
 
     <body>
+        <div class="dateSelect">
+            <!--Выбор вида вклада-->
+            <select name="typeDeposit" class="slct1" id="slct1" onchange="populate(this.id, 'slct2')">
+                <option disabled selected>Вид вклада</option>
+                <option value="Пополняемый">Пополняемый</option>
+                <option value="Срочный">Срочный</option>
+            </select>
+            <!--Выбор срока вклада-->
+            <div>
+                <select name="depositTerm" class="slct2" id="slct2">
+                    <option disabled selected>Срок вклада</option>
+                </select>
+            </div>
+            <!--Поле ввода суммы-->
+            <div>
+                <input type="text" class="text" name="text" required placeholder="Сумма, руб.">
+            </div>
+            <!--Кнопка Расчитать-->
+            <div class="btn">
+                <button type="submit">Рассчитать</button> 
+            </div>
 
-        
+        </div>
+        <!--Вывод результата на экран-->
+        <div class="result">
+                <output name="res"></output>
+        </div>
         <script src="script1.js"></script>
     </body>
 </html>
