@@ -42,6 +42,7 @@ document.querySelector('.btn').addEventListener('click',()=>{
             case "24 месяца": per=0.15;break;
         }
     }
-    document.querySelector('.result').innerHTML+='<br>'+"В конце срока вы получите " + Math.round(dataSum*per+dataSum) +" руб.";
+    let resSum=Math.round(Number(dataSum)*per+Number(dataSum));
+    document.querySelector('.result').innerHTML+='<br>'+"В конце срока вы получите " + resSum +" руб.";
     } else alert("Ошибка! Поля не все заполнены."); //сообщение об ошибке
 })
