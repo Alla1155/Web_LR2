@@ -22,27 +22,27 @@ document.querySelector('.btn').addEventListener('click',()=>{
     let dataType=document.querySelector('.slct1').value; //получаем данные о виде вклада
     let dataTerm=document.querySelector('.slct2').value; //получаем данные о сроке вклада
     let dataSum=document.querySelector('.text').value; //получаем данные о сумме
-    let per=0;
+    let per=0, mes=0;
     if(dataSum!="" && dataType!="Вид вклада" && dataTerm!="Срок вклада" && dataTerm!=""){ //если все заполнено
     document.querySelector('.result').innerHTML="Вклад «"+dataType+"» на срок «"+dataTerm+"» на сумму "+dataSum+" руб."+'<br>';
     if (dataType=="Пополняемый"){
         switch (dataTerm){
-            case "6 месяцев": per=0.2; break;
-            case "12 месяцев": per=0.22; break;
-            case "18 месяцев": per=0.15; break;
-            case "24 месяца": per=0.1; break;
+            case "6 месяцев": per=0.2; mes=0.5; break;
+            case "12 месяцев": per=0.22; mes=1; break;
+            case "18 месяцев": per=0.15; mes=1.5; break;
+            case "24 месяца": per=0.1; mes=2; break;
         }
     }else {
         switch (dataTerm){
-            case "3 месяца": per=0.2; break;
-            case "6 месяцев": per=0.22; break;
-            case "9 месяцев": per=0.23; break;
-            case "12 месяцев": per=0.24; break;
-            case "18 месяцев": per=0.18; break;
-            case "24 месяца": per=0.15;break;
+            case "3 месяца": per=0.2; mes=0.25; break;
+            case "6 месяцев": per=0.22; mes=0.5; break;
+            case "9 месяцев": per=0.23; mes=0.75; break;
+            case "12 месяцев": per=0.24; mes=1; break;
+            case "18 месяцев": per=0.18; mes=1.5; break;
+            case "24 месяца": per=0.15; mes=2; break;
         }
     }
-    let resSum=Math.round(Number(dataSum)*per+Number(dataSum));
+    let resSum=Math.round(Number(dataSum)*per/mes+Number(dataSum));
     document.querySelector('.result').innerHTML+='<br>'+"В конце срока вы получите " + resSum +" руб.";
     } else alert("Ошибка! Поля не все заполнены."); //сообщение об ошибке
 })
